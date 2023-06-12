@@ -1,0 +1,29 @@
+DirectoryIndex index.html
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+</IfModule>
+
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteRule ^home$ index.html/?page=home
+RewriteRule ^homeamc$ index.html/home
+RewriteRule ^profile$ about.html
+RewriteRule ^broadband$ broadband.html
+RewriteRule ^corporate$ corporate.html
+RewriteRule ^dedicated$ dedicated.html
+RewriteRule ^project$ project.html
+RewriteRule ^signin$ amc.net.id/login
+RewriteRule ^cover=area?$ project.html
+RewriteRule ^about$ about.html
+RewriteRule ^hubungi=kami$ contact.html
+RewriteRule ^tidakditemukan?$ 404.html
+RewriteRule ^layanan$ service.html
+RewriteRule ^internetsehat$ internetsehat.html
+RewriteRule ^([a-zA-Z0-9-/+][~\%;a-zA-Z']+)$ 404.html?p=oops [NC,L]
